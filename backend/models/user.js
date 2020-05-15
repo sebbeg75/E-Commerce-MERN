@@ -20,5 +20,7 @@ const userSchema = new mongoose.Schema({
     role:String,
     tokens:[String],
 });
+
 const UserModel = mongoose.model('User', userSchema);
+
 module.exports = UserModel;

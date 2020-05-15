@@ -13,15 +13,18 @@ mongoose.connect('mongodb://localhost:27017/E-commerce', {
 })
 .then(() => console.log('Connected successfully to Mongodb'))
 .catch(console.error);
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,authorization");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     next();
-});    
-app.post('/products', (req,res) => {
+});   
 
-})
+//app.post('/products', (req,res) => {
+
+//})
+
 app.use(express.json());
 app.use(morgan ('dev'));
 app.use('/user', usersRouter);
