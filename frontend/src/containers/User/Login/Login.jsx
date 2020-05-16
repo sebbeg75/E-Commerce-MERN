@@ -11,8 +11,8 @@ const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
 const Login = () => {
-    const emailInput = useRef(null);//evitamos hacer document.getElementById/querySelector
-    const history = useHistory();//props.history
+    const emailInput = useRef(null);
+    const history = useHistory();
     useEffect(() => {
         emailInput.current.focus()
     }, [])
@@ -20,15 +20,15 @@ const Login = () => {
       login(user)
       .then(()=>{
         notification.success({
-            message: 'Usuario conectado éxito'
+            message: 'User connected successfully'
         });
-        history.push('/') //this.router.navigate(['/login]) en angular
+        history.push('/') 
       })
       .catch(error=>{
           console.error(error)
           notification.error({
-            message: 'Credenciales inválidas',
-            description:'Email y/o contraseñas no válidas'
+            message: 'Worng credentials',
+            description:'Invalid email and password'
         })
       })
     };
@@ -44,7 +44,7 @@ const Login = () => {
                 <Form.Item
                     label="Email"
                     name="email"
-                    rules={[{ required: true, message: 'El email es requerido' }]}
+                    rules={[{ required: true, message: 'E-mail required' }]}
                 >
                     <Input ref={emailInput}/>
                 </Form.Item>
@@ -52,7 +52,7 @@ const Login = () => {
                 <Form.Item
                     label="Contraseña"
                     name="password"
-                    rules={[{ required: true, message: 'La contraseña es requerida' }]}
+                    rules={[{ required: true, message: 'Required password' }]}
                 >
                     <Input.Password />
                 </Form.Item>
